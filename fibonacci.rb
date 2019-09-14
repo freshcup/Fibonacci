@@ -21,13 +21,15 @@ def iterative_fib(n)
   fib.sum
 end
 
+puts "recursive:"
 puts recursive_fib(9)
 puts "---"
+puts "iterative:"
 puts iterative_fib(9)
 
-#require 'benchmark'
-#num = 35
-#Benchmark.bm do |x|
-#  x.report("recursive_fib") { recursive_fib(num) }
-#  x.report("iterative_fib")  { iterative_fib(num)  }
-#end
+require 'benchmark'
+num = 35
+Benchmark.bm do |x|
+  x.report("recursive_fib") { recursive_fib(num) }
+  x.report("iterative_fib")  { iterative_fib(num)  }
+end
