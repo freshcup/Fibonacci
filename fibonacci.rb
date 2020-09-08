@@ -1,16 +1,10 @@
-
 def recursive_fib(n)
-  if n == 0
-    return 0
-  elsif n == 1
-    return 1
-  elsif n == 2
-    return 1
+  if n < 2
+    return n    
   else
     recursive_fib(n-1) + recursive_fib(n-2)
   end
 end
-
 
 def iterative_fib(n)
   fib = [0,1]
@@ -18,16 +12,15 @@ def iterative_fib(n)
     fibsum = fib[i-1] + fib[i-2]
      fib << fibsum
   end
-   
   return fib.last
 end
 
 
 puts "recursive:"
-puts recursive_fib(9)
+puts recursive_fib(35)
 puts "---"
 puts "iterative:"
-puts iterative_fib(9)
+puts iterative_fib(35)
 
 
 require 'benchmark'
@@ -38,10 +31,11 @@ Benchmark.bm do |x|
 end
 
 #recursive:
-#34
+#9227465
 #---
 #iterative:
-#34
-#       user     system      total        real
-#recursive_fib  1.826717   0.001056   1.827773 (  1.837155)
-#iterative_fib  0.000022   0.000000   0.000022 (  0.000017)
+#9227465
+#user           system     total      real
+#recursive_fib  0.990097   0.000000   0.990097 (  1.001550)
+#iterative_fib  0.000000   0.000000   0.000000 (  0.000012)
+
